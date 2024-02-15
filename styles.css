@@ -1,0 +1,75 @@
+body {
+	font:14pt/1.45 Verdana,sans-serif;
+	max-width:60rem;
+}
+header {
+	margin:1rem;
+}
+main {
+	margin:1rem;
+}
+footer {
+	font-size:85%;
+	margin:1rem;
+}
+
+ol {
+	list-style:none;
+	margin:1rem 0;
+	padding:0;
+}
+li {
+	margin:0.25rem 0;
+}
+
+input,
+select {
+	font:inherit;
+	font-size:90%;
+}
+
+
+#input {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+}
+#input li {
+	display:flex;
+	gap:1rem;
+	align-items:center;
+	margin:0.75rem 0;
+}
+#input label:first-child {
+	flex:0 1 8rem;
+}
+#input input[type="number"],
+#input select {
+	flex:0 0 10rem;
+	width:10rem;
+}
+#input input[type="radio"] {
+	margin-right:-0.5rem;
+}
+
+#output {
+	border-bottom:1px solid black;
+}
+#output:empty {
+	border:none;
+}
+
+details {
+	border-bottom:1px solid black;
+}
+summary {
+	padding:0.5rem 0;
+	cursor:pointer;
+}
+details p {
+	font-size:85%;
+	margin:0;
+}
+details ul {
+	font-size:85%;
+	margin:0 0 1rem;
+}

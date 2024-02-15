@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Timberborn Plant/Harvest Calculator</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<header>
+		<h1>Timberborn Plant/Harvest Calculator</h1>
+	</header>
+	<main>
+		<section id="input">
+			<ol>
+				<li>
+					<label for="workhours">Work Hours</label>
+					<input id="workhours" type="number" min="1" max="24" value="16"/>
+				</li>
+				<li>
+					<label for="wellbeing">Wellbeing</label>
+					<input id="wellbeing" type="number" value="0"/>
+				</li>
+
+				<li>
+					<label for="radius">Radius</label>
+					<input id="radius" type="number" min="1" value="5" />
+
+					<input name="shape" id="shape-c" type="radio" value="circle" checked/>
+					<label for="shape-c">circle</label>
+
+					<input name="shape" id="shape-s" type="radio" value="square"/>
+					<label for="shape-s">square</label>
+				</li>
+
+				<li>
+					<label for="harvesters">Harvesters</label>
+					<input id="harvesters" type="number" min="1" value="1"/>
+				</li>
+				<li>
+					<label for="planters">Planters</label>
+					<input id="planters" type="number" min="1" value="1"/>
+				</li>
+
+				<li>
+					<label for="product">Product</label>
+					<select id="product">
+						<optgroup label="Wood">
+							<option value="birch" selected>Birch</option>
+							<option value="pine">Pine</option>
+							<option value="oak">Oak</option>
+							<option value="chestwood">Chestnut</option>
+							<option value="maple">Maple</option>
+							<option value="mangwood">Mangrove</option>
+						</optgroup>
+						<optgroup label="Gatherers">
+							<option value="dandelion">Dandelion</option>
+							<option value="berry">Berry</option>
+							<option value="chestnut">Chestnut</option>
+							<option value="pineresin">Pine Resin</option>
+							<option value="maplesyrup">Maple Syrup</option>
+							<option value="coffee">Coffee Beans</option>
+							<option value="mangrove">Mangrove Fruits</option>
+						</optgroup>
+						<optgroup label="Farm (Folktails)">
+							<option value="carrot">Carrot</option>
+							<option value="sunflower">Sunflower</option>
+							<option value="potato">Potato</option>
+							<option value="wheat">Wheat</option>
+							<option value="spadderdock">Spadderdock</option>
+							<option value="cattail">Cattail</option>
+						</optgroup>
+						<optgroup label="Farm (Ironteeth)">
+							<option value="kohlrabi">Kohlrabi</option>
+							<option value="cassava">Cassava</option>
+							<option value="soybean">Soybean</option>
+							<option value="canola">Canola</option>
+							<option value="corn">Corn</option>
+							<option value="eggplant">Eggplant</option>
+						</optgroup>
+					</select>
+				</li>
+			</ol>
+		</section>
+		<aside id="output"></aside>
+		<details>
+			<summary>Notes</summary>
+
+			<p>Work Hours:</p>
+			<ul>
+				<li>Default is 16 working hours per day</li>
+				<li>Assumes beavers work 100% of the work day (so travel time is ignored)</li>
+				<li>You can enter more than 24 hours, but don't expect the results to be meaningful :)</li>
+			</ul>
+
+			<p>Wellbeing:</p>
+			<ul>
+				<li>Enter current average wellbeing value (global or district)</li>
+				<li>Negative values (from hunger/thirst) are not supported</li>
+				<li>Bots are not (yet) supported</li>
+			</ul>
+
+			<p>Radius:</p>
+			<ul>
+				<li>For a circle plot, radius signifies distance from the <em>center</em>, so a radius of 5 counts 5 squares in every direction (diameter of 11)</li>
+				<li>For a square plot, radius signifies distance from the <em>corner</em>, so a radius of 5 means a 5-by-5 square</li>
+				<li>The center/corner square is NOT counted as plantable (i.e. it's where the flag/building is)</li>
+				<li>For simplicity, paths and building footprints are ignored</li>
+				<li>Assumes perfect pathing, no food/water breaks, and 100% efficiency</li>
+				<li>Swimming speed is factored into aquatic crops only (not e.g. submerged forests)</li>
+			</ul>
+
+			<p>Harvesters:</p>
+			<ul>
+				<li>Lumberjacks for wood, harvesters for farms, gatherers for berries/nuts</li>
+				<li>Specify the number of beavers assigned to the plot/field, not the number of buildings</li>
+			</ul>
+
+			<p>Planters:</p>
+			<ul>
+				<li>Foresters for wood/berries/nuts, planters for farms</li>
+				<li>Specify the number of beavers assigned to the plot/field, not the number of buildings</li>
+				<li>Farm beavers will do both planting and harvesting (depending on priority order); adding plant/harvest times together should give a reasonable enough estimate, just keep in mind that they're probably going to be more efficient than the values shown</li>
+			</ul>
+
+			<p>Still to do:</p>
+			<ul>
+				<li>Bots</li>
+				<li>Hunger/thirst debuffs</li>
+			</ul>
+		</details>
+	</main>
+	<footer>
+		<p>Timberborn game created by <a href="https://mechanistry.com/" target="_blank">Mechanistry</a>.  I don't own any rights to it, nor am I affiliated with the developers in any way.  Calculator presented as-is for planning purposes only.  All the math and data points are from my own testing on Update 5.  Any errors are mine alone.</p>
+	</footer>
+	<script src="tbcalc.js"></script>
+
+</body>
+</html>
